@@ -17,9 +17,12 @@ class _HomePageState extends State<HomePage> {
 
   @override
   void initState() {
+   //if this is the 1st time ever opening the app,then create default data
+
     if (_mybox.get("TODOLİST") == null) {
       db.createInitialData();
     } else {
+      //there already exists data
       db.loadData();
     }
     super.initState();
