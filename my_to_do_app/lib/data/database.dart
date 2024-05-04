@@ -3,10 +3,10 @@ import 'package:hive_flutter/hive_flutter.dart';
 class ToDoDataBase {
   List toDoList = [];
 
-//referance my box
+//referance our box
   final _mybox = Hive.box('mybox');
 
-//if is it the first time
+//run this method if this is the 1st time ever opening this app
   void createInitialData() {
     toDoList = [
       ["Make tutorial", false],
@@ -14,12 +14,12 @@ class ToDoDataBase {
     ];
   }
 
-  //load data from database
+  //load the data from database
   void loadData() {
     toDoList = _mybox.get("TODOLİST");
   }
 
-  //update data
+  //update the data
   void updateDataBase() {
     _mybox.put("TODOLİST", toDoList);
   }
